@@ -23,7 +23,7 @@ class _SidebarState extends State<Sidebar> {
             children: <Widget>[
               UserAccountsDrawerHeader(
                 decoration: const BoxDecoration(
-                  color: Colors.blueAccent,
+                  color: CustomColor.colorSatu,
                 ),
                 accountName: const Text('John Doe'),
                 accountEmail: const Text('johndoe@example.com'),
@@ -151,4 +151,9 @@ class _SidebarState extends State<Sidebar> {
       ),
     );
   }
+}
+
+class CustomColor {
+  static const Color colorSatu = Color(0xFFE1B43F);
+  static const Color colorDua = Color(0xFF262626);
 }

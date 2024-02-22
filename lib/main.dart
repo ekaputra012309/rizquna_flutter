@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rizqunatravel/screens/component.dart';
 import 'package:rizqunatravel/screens/home.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Rizquna Travel',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.tealAccent),
+        colorScheme: ColorScheme.fromSeed(seedColor: CustomColor.colorSatu),
         useMaterial3: true,
       ),
       home: const Homepage(),

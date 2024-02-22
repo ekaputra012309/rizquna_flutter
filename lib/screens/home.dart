@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rizqunatravel/screens/dashboard.dart';
 
 import 'component.dart';
 
@@ -18,9 +19,7 @@ class Homepage extends StatelessWidget {
             debugPrint('Item selected: $index');
           },
         ),
-        body: const Center(
-          child: Text('Main Content'),
-        ),
+        body: const DashboardPage(),
       ),
     );
   }
