@@ -7,25 +7,33 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Builder(
-          builder: (context) {
-            return GridView.count(
-              crossAxisCount: MediaQuery.of(context).size.width > 600
-                  ? 4
-                  : 2, // Adjust cross axis count based on screen width
-              mainAxisSpacing: 16.0,
-              crossAxisSpacing: 16.0,
-              children: [
-                _buildItem(context, Icons.home, 'Home'),
-                _buildItem(context, Icons.settings, 'Settings'),
-                _buildItem(context, Icons.notifications, 'Notifications'),
-                _buildItem(context, Icons.person, 'Profile'),
-              ],
-            );
-          },
-        ),
+      body: Builder(
+        builder: (context) {
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                ),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: MediaQuery.of(context).size.width > 600
+                      ? 4
+                      : 2, // Adjust cross axis count based on screen width
+                  mainAxisSpacing: 16.0,
+                  crossAxisSpacing: 16.0,
+                  children: [
+                    _buildItem(context, Icons.home, 'Home'),
+                    _buildItem(context, Icons.settings, 'Settings'),
+                    _buildItem(context, Icons.notifications, 'Notifications'),
+                    _buildItem(context, Icons.person, 'Profile'),
+                  ],
+                ),
+              ),
+              _buildListOutsideGridView(), // Your list of cards
+            ],
+          );
+        },
       ),
     );
   }
@@ -42,8 +50,8 @@ class DashboardPage extends StatelessWidget {
             Icon(
               icon,
               size: MediaQuery.of(context).size.width > 600
-                  ? 50
-                  : 30, // Adjust icon size based on screen width
+                  ? 60
+                  : 50, // Adjust icon size based on screen width
               color:
                   CustomColor.colorSatu, // You can set your desired color here
             ),
@@ -54,6 +62,37 @@ class DashboardPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildListOutsideGridView() {
+    // Replace this with your list of cards
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'List of Cards',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          _buildCard('Card 1'),
+          _buildCard('Card 2'),
+          _buildCard('Card 3'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCard(String title) {
+    return Card(
+      child: ListTile(
+        title: Text(title),
+        onTap: () {
+          // Handle onTap event for cards
+        },
       ),
     );
   }
